@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Concert+One&family=Akshar:wght@300;400;500;600;700&family=Azeret+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-navbar: #373028;
+  --color-card: #141414;
+  --color-accent: #bf7f36;
+  --color-accent-hover: #d4943f;
+  --color-section-bg: #d7c9ae;
+  --color-glass: rgba(255, 255, 255, 0.8);
+  --color-glass-border: rgba(191, 127, 54, 0.2);
+  --color-text-cream: #f5efe6;
+  --color-text-muted: #b8a089;
+  --color-dark: #0a0a0a;
+  --color-dark-alt: #111111;
+  --color-surface: #1a1a1a;
+
+  --font-gochi: 'Gochi Hand', cursive;
+  --font-concert: 'Concert One', sans-serif;
+  --font-akshar: 'Akshar', sans-serif;
+  --font-azeret: 'Azeret Mono', monospace;
+}
+
+/* Global Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-akshar);
+  background-color: #1f1f1f;
+  color: var(--color-text-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.coffee-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #f0a12f;
+  border: 4px solid #0f0f0f;
+  cursor: pointer;
+  position: relative;
+  z-index: 30;
+}
+
+.coffee-range::-moz-range-thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #f0a12f;
+  border: 4px solid #0f0f0f;
+  cursor: pointer;
+}
+
+.bg-card {
+  background: rgba(0, 0, 0, 0.93);
+  backdrop-filter: blur(2px);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.6s ease forwards;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
