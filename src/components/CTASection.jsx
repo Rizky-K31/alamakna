@@ -5,7 +5,7 @@ export default function CTASection() {
   return (
     <section
       id="simulation-login"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 py-20 text-center"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden px-6 py-20 text-center"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url(${beansBg})`,
         backgroundSize: 'cover',

@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex h-screen flex-col items-center justify-center overflow-hidden text-center"
+      className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden text-center"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.30), rgba(0,0,0,0.42)), url(${beansBg})`,
         backgroundSize: 'cover',

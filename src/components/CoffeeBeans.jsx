@@ -39,9 +39,9 @@ export default function CoffeeBeans() {
 
   return (
     <section id="education" className="scroll-mt-14">
-      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
+      <div className="grid h-screen w-full grid-cols-1 lg:grid-cols-2">
         <div
-          className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-8 py-20 text-center"
+          className="relative flex h-screen flex-col items-center justify-center overflow-hidden px-8 py-20 text-center"
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.66), rgba(0,0,0,0.86)), url(${beansBg})`,
             backgroundSize: 'cover',
@@ -65,7 +65,7 @@ export default function CoffeeBeans() {
           </h3>
         </div>
 
-        <div className="flex min-h-screen items-center justify-center bg-section-bg px-8 py-20 md:px-14 xl:px-24">
+        <div className="flex h-screen items-center justify-center bg-section-bg px-8 py-20 md:px-14 xl:px-24">
           <div className="w-full max-w-[620px]">
             <div className="mb-6 grid grid-cols-2 border border-black">
               {['arabika', 'robusta'].map((tab) => (

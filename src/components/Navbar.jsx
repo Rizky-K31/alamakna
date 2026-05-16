@@ -6,13 +6,16 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const { user, logout } = useAuth();
+  const displayName = user?.user_metadata?.username
+    || user?.user_metadata?.full_name
+    || user?.email?.split('@')[0]
+    || 'USER';
 
   const simulationHash = user ? '#simulation' : '#simulation-login';
   const navLinks = [
     { to: '/#home', hash: '#home', label: 'Home' },
     { to: '/#education', hash: '#education', label: 'Education' },
     { to: `/${simulationHash}`, hash: simulationHash, label: 'Simulation' },
-    ...(user ? [{ to: '/backend', hash: '', label: 'Backend' }] : []),
   ];
 
   const isActive = (link) =>
@@ -60,9 +63,10 @@ export default function Navbar() {
             <button
               type="button"
               onClick={handleLogout}
-              className="flex h-7 w-[72px] items-center justify-center rounded-[5px] bg-white font-akshar text-base font-bold leading-none text-black transition-colors hover:bg-accent"
+              title="Logout"
+              className="flex h-7 max-w-[140px] items-center justify-center truncate rounded-[5px] bg-white px-3 font-akshar text-base font-bold leading-none text-black transition-colors hover:bg-accent"
             >
-              OUT
+              {displayName}
             </button>
           ) : (
             <Link
@@ -115,7 +119,7 @@ export default function Navbar() {
                 }}
                 className="text-left font-akshar text-lg text-white"
               >
-                LOGOUT
+                {displayName}
               </button>
             ) : (
               <Link

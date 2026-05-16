@@ -42,8 +42,8 @@ body {
 
 .coffee-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   background: #f0a12f;
   border: 4px solid #0f0f0f;
@@ -53,8 +53,8 @@ body {
 }
 
 .coffee-range::-moz-range-thumb {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   border-radius: 999px;
   background: #f0a12f;
   border: 4px solid #0f0f0f;

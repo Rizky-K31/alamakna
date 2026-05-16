@@ -1,5 +1,6 @@
 import HeroSection from '../components/HeroSection';
 import CoffeeBeans from '../components/CoffeeBeans';
+import OriginSection from '../components/OriginSection';
 import CTASection from '../components/CTASection';
 import { useAuth } from '../context/useAuth';
 import Simulation from './Simulation';
@@ -11,6 +12,7 @@ export default function Home() {
     <div>
       <HeroSection />
       <CoffeeBeans />
+      <OriginSection />
       {user ? <Simulation /> : <CTASection />}
     </div>
   );

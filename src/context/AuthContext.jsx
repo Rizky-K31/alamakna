@@ -4,7 +4,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const requireSupabaseConfig = () => {
   if (!isSupabaseConfigured) {
-    throw new Error('Supabase belum dikonfigurasi. Isi VITE_SUPABASE_URL dan VITE_SUPABASE_ANON_KEY di .env.local.');
+    throw new Error('Supabase belum dikonfigurasi. Isi VITE_SUPABASE_URL dan VITE_SUPABASE_PUBLISHABLE_KEY di .env.local.');
   }
 };
 
@@ -34,9 +34,18 @@ export function AuthProvider({ children }) {
     return data;
   };
 
-  const signup = async (email, password) => {
+  const signup = async (email, password, username) => {
     requireSupabaseConfig();
-    const { data, error } = await supabase.auth.signUp({ email, password });
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          username,
+          full_name: username,
+        },
+      },
+    });
     if (error) throw error;
     return data;
   };

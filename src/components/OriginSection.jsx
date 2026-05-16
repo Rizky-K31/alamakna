@@ -3,7 +3,7 @@ import gunungMakale from '../assets/gunung_makale.webp';
 export default function OriginSection() {
   return (
     <section
-      className="relative flex h-screen flex-col items-center justify-center overflow-hidden text-center"
+      className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden text-center"
       style={{
         backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.23), rgba(0,0,0,0.05)), url(${gunungMakale})`,
         backgroundSize: 'cover',
