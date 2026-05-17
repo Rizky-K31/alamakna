@@ -12,7 +12,7 @@ export default function CTASection() {
         backgroundPosition: 'center',
       }}
     >
-      <div className="relative z-10 grid w-full max-w-[1200px] items-center gap-8 md:grid-cols-[380px_1fr] md:gap-14">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-8 md:grid-cols-[380px_1fr] md:gap-14">
         <Link
           to="/login"
           state={{ redirectTo: '/#simulation' }}

@@ -50,7 +50,7 @@ export default function SignUpForm({
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
-            placeholder="nama@email.com"
+            placeholder="nama@gmail.com"
             className="mt-2 h-12 w-full rounded-xl border border-white/10 bg-white/10 px-4 font-akshar text-base text-white outline-none transition-colors placeholder:text-white/35 focus:border-accent"
           />
         </label>
@@ -78,7 +78,7 @@ export default function SignUpForm({
           disabled={submitting}
           className="h-13 w-full rounded-xl bg-accent font-azeret text-sm font-black uppercase tracking-[0.18em] text-dark shadow-lg shadow-accent/20 transition-all hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {submitting ? 'Memproses...' : 'Create Account'}
+          {submitting ? 'Proses...' : 'Create Account'}
         </button>
       </form>
 

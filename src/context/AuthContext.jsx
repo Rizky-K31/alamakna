@@ -58,11 +58,20 @@ export function AuthProvider({ children }) {
 
   const resetPassword = async (email) => {
     requireSupabaseConfig();
-    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}/login`,
+    });
     if (error) throw error;
   };
 
-  const value = { user, loading, login, signup, logout, resetPassword };
+  const updatePassword = async (password) => {
+    requireSupabaseConfig();
+    const { data, error } = await supabase.auth.updateUser({ password });
+    if (error) throw error;
+    return data;
+  };
+
+  const value = { user, loading, login, signup, logout, resetPassword, updatePassword };
 
   return (
     <AuthContext.Provider value={value}>
