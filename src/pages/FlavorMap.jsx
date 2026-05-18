@@ -9,9 +9,8 @@ export default function FlavorMap() {
   );
 
   return (
-    <section id="peta-kopi" className="bg-[#f8f7f3] text-[#71664f]">
-      <div
-        className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-5 pb-20 pt-36 sm:px-8 md:px-12 md:pt-40 lg:px-20">
+    <section id="peta-kopi" className="scroll-mt-14 bg-[#f8f7f3] text-[#71664f]">
+      <div className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-5 pb-20 pt-16 sm:px-8 md:px-12 md:pt-20 lg:px-20">
         <h2 className="text-center font-azeret text-[34px] font-bold leading-tight text-[#71664f] sm:text-[46px] md:text-[56px]">
           Peta Kopi Indonesia
         </h2>
