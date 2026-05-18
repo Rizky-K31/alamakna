@@ -45,7 +45,7 @@ export default function CoffeeBeans() {
                   key={tab}
                   type="button"
                   onClick={() => setActiveTab(tab)}
-                  className={`h-14 border-r border-black font-gochi text-2xl text-black transition-colors last:border-r-0 md:text-3xl ${
+                  className={`h-14 border-r border-black font-gochi text-2xl text-black transition-colors last:border-r-0 focus:outline-none md:text-3xl ${
                     activeTab === tab ? 'bg-accent' : 'bg-transparent hover:bg-black/5'
                   }`}
                 >
@@ -54,11 +54,11 @@ export default function CoffeeBeans() {
               ))}
             </div>
 
-            <p className="mb-5 text-justify font-azeret text-sm leading-relaxed tracking-wide text-white md:text-base">
+            <p className="mb-5 min-h-[170px] text-justify font-azeret text-sm leading-relaxed tracking-wide text-white md:min-h-[190px] md:text-base">
               {data.deskripsi}
             </p>
 
-            <div className="bg-[#efe6d6]/80 px-6 py-5">
+            <div className="min-h-[210px] bg-[#efe6d6]/80 px-6 py-5">
               <table className="w-full table-fixed border-collapse">
                 <tbody>
                   {data.specs.map((spec, index) => (
