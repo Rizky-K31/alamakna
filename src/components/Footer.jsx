@@ -34,6 +34,7 @@ export default function Footer() {
               {[
                 ['Home', '/#home'],
                 ['Education', '/#education'],
+                ['Peta Kopi', '/#peta-kopi'],
                 ['Simulation', simulationTarget],
               ].map(([label, to]) => (
                 <Link key={label} to={to} className="font-akshar text-base text-white/50 transition-colors hover:text-white">

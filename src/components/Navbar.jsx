@@ -19,6 +19,7 @@ export default function Navbar() {
   const navLinks = [
     { to: '/#home', hash: '#home', label: 'Home' },
     { to: '/#education', hash: '#education', label: 'Education' },
+    { to: '/#peta-kopi', hash: '#peta-kopi', label: 'Peta Kopi' },
     { to: `/${simulationHash}`, hash: simulationHash, label: 'Simulation' },
   ];
 
@@ -27,7 +28,7 @@ export default function Navbar() {
       return undefined;
     }
 
-    const sectionIds = ['home', 'education', simulationHash.slice(1)];
+    const sectionIds = ['home', 'education', 'peta-kopi', simulationHash.slice(1)];
 
     const updateActiveSection = () => {
       const markerPosition = 90;

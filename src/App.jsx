@@ -30,6 +30,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/education" element={<Navigate to="/#education" replace />} />
+          <Route path="/peta-rasa" element={<Navigate to="/#peta-kopi" replace />} />
+          <Route path="/peta-kopi" element={<Navigate to="/#peta-kopi" replace />} />
           <Route path="/login" element={<Login />} />
           <Route path="/simulation" element={<Navigate to={user ? '/#simulation' : '/#simulation-login'} replace />} />
           <Route

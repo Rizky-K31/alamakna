@@ -3,9 +3,9 @@ export const coffeeData = {
     name: 'Arabika',
     profil: 'Lebih halus, kompleks, manis, dan asam',
     rasa: 'Fruity, floral, berry, nutty, chocolate',
-    kafein: 'Rendah (+- 0,9-1,2%)',
+    kafein: 'Rendah (± 0,9-1,2%)',
     tinggi: 'Tinggi (1000-2000 mdpl)',
-    harga: '+- Rp.60.000/100 gram',
+    harga: '± Rp.60.000/100 gram',
     asal: [
       'Gayo',
       'Toraja',
@@ -30,9 +30,9 @@ export const coffeeData = {
     name: 'Robusta',
     profil: 'Kuat, bold, dan pahit',
     rasa: 'Woody, earthy, harsh, nutty',
-    kafein: 'Tinggi (+- 1,6-2,4%)',
+    kafein: 'Tinggi (± 1,6-2,4%)',
     tinggi: 'Rendah (200-800 mdpl)',
-    harga: '+- Rp.40.000/100 gram',
+    harga: '± Rp.40.000/100 gram',
     asal: [
       'Lampung',
       'Temanggung',

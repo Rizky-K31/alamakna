@@ -66,6 +66,20 @@ body {
   backdrop-filter: blur(2px);
 }
 
+.flavor-map-svg svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.flavor-map-svg path {
+  fill: #e5e2cd !important;
+  stroke: #ffffff !important;
+  stroke-width: 4 !important;
+  transition: fill 180ms ease, opacity 180ms ease;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
