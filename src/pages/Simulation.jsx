@@ -27,16 +27,16 @@ export default function Simulation() {
   return (
     <main id="simulation" className="scroll-mt-[73px]">
       <section
-        className="relative min-h-screen w-full overflow-hidden px-4 py-20 text-center md:px-8 md:py-24"
+        className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 py-28 text-center md:px-8 md:py-32"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.50), rgba(0,0,0,0.68)), url(${beansBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="mx-auto w-full max-w-[1092px]">
-          <div className="mb-8 text-center md:mb-10">
-            <h1 className="font-gochi text-6xl leading-none text-white md:text-[96px]">
+        <div className="mx-auto w-full max-w-[1040px]">
+          <div className="mb-8 text-center md:mb-9">
+            <h1 className="font-gochi text-6xl leading-none text-white md:text-[88px]">
               BLEND
             </h1>
 
@@ -45,7 +45,7 @@ export default function Simulation() {
             </p>
           </div>
 
-          <div className="grid w-full grid-cols-1 justify-items-center gap-7 lg:grid-cols-[522px_522px]">
+          <div className="grid w-full grid-cols-1 justify-items-center gap-7 lg:grid-cols-2">
             <BlendSimulator
               arabicaPercent={arabicaPercent}
               onPercentChange={setArabicaPercent}

@@ -6,7 +6,7 @@ export default function FlavorBars({ flavor }) {
   ];
 
   return (
-    <div className="mx-auto min-h-[360px] w-[522px] max-w-full rounded-[10px] bg-card px-6 py-9 text-left shadow-2xl sm:px-8 md:min-h-[507px] md:px-12 md:py-14">
+    <div className="mx-auto min-h-[360px] w-full max-w-[500px] rounded-[10px] bg-card px-6 py-9 text-left shadow-2xl sm:px-8 md:min-h-[507px] md:px-10 md:py-12">
       <h3 className="mb-12 text-center font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:mb-20">
         Profil Rasa
       </h3>

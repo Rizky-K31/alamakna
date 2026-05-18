@@ -23,12 +23,6 @@ export default function Footer() {
           <p className="mt-5 max-w-md font-akshar text-lg leading-relaxed text-white/72">
             Ruang eksplorasi kopi Nusantara untuk mengenal origin, karakter biji, dan racikan blend yang paling cocok dengan seleramu.
           </p>
-          <Link
-            to={simulationTarget}
-            className="mt-7 inline-flex h-11 items-center justify-center rounded-full border border-accent bg-accent px-6 font-azeret text-xs font-black uppercase tracking-[0.16em] text-white transition-colors hover:bg-accent-hover"
-          >
-            Blend Coffee
-          </Link>
         </div>
 
         <div>
