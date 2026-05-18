@@ -2,8 +2,8 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
   const robusta = 100 - arabicaPercent;
 
   return (
-    <div className="mx-auto min-h-[507px] w-[522px] max-w-full rounded-[10px] bg-card px-12 py-14 text-left shadow-2xl">
-      <h3 className="mb-12 text-center font-azeret text-2xl font-extrabold uppercase tracking-normal text-white">
+    <div className="mx-auto min-h-[430px] w-[522px] max-w-full rounded-[10px] bg-card px-6 py-9 text-left shadow-2xl sm:px-8 md:min-h-[507px] md:px-12 md:py-14">
+      <h3 className="mb-9 text-center font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:mb-12">
         Blend Ratio
       </h3>
 
@@ -34,11 +34,11 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
         </div>
       </div>
 
-      <div className="mt-12 rounded-[10px] bg-[#1e1e1e] px-5 py-5">
-        <h4 className="mb-5 font-azeret text-2xl font-extrabold text-white">
+      <div className="mt-10 rounded-[10px] bg-[#1e1e1e] px-5 py-5 md:mt-12">
+        <h4 className="mb-5 font-azeret text-xl font-extrabold text-white md:text-2xl">
           {tasteLabel}
         </h4>
-        <p className="font-azeret text-xl font-extralight leading-normal text-white">
+        <p className="font-azeret text-base font-extralight leading-normal text-white md:text-xl">
           {tasteDesc}
         </p>
       </div>

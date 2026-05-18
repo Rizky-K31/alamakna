@@ -27,15 +27,15 @@ export default function Simulation() {
   return (
     <main id="simulation" className="scroll-mt-[73px]">
       <section
-        className="relative h-screen w-full overflow-hidden text-center"
+        className="relative min-h-screen w-full overflow-hidden px-4 py-20 text-center md:px-8 md:py-24"
         style={{
           backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.50), rgba(0,0,0,0.68)), url(${beansBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
       >
-        <div className="absolute left-1/2 top-24 w-[min(1092px,calc(100%-32px))] -translate-x-1/2">
-          <div className="mb-10 text-center">
+        <div className="mx-auto w-full max-w-[1092px]">
+          <div className="mb-8 text-center md:mb-10">
             <h1 className="font-gochi text-6xl leading-none text-white md:text-[96px]">
               BLEND
             </h1>
