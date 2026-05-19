@@ -10,11 +10,13 @@ export default function FlavorMap() {
 
   return (
     <section id="peta-kopi" className="scroll-mt-14 bg-[#f8f7f3] text-[#71664f]">
-      <div className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-5 pb-20 pt-16 sm:px-8 md:px-12 md:pt-20 lg:px-20">
-        <h2 className="text-center font-azeret text-[34px] font-bold leading-tight text-[#71664f] sm:text-[46px] md:text-[56px]">
+      <div className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-5 pb-20 sm:px-8 md:px-12 lg:px-20">
+        <h2
+          style={{ marginTop: '90px' }}
+          className="text-center font-azeret text-[34px] font-bold leading-tight text-[#71664f] sm:text-[46px] md:text-[56px]"
+        >
           Peta Kopi Indonesia
         </h2>
-
         <div className="mt-12 flex flex-1 items-center justify-center md:mt-14">
           <div className="relative mx-auto aspect-[1676/707] w-full max-w-[1180px]">
             <div

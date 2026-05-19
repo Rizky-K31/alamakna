@@ -10,7 +10,7 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
       <div className="mb-10">
         <div className="mb-7 flex items-center justify-between">
           <span className="font-gochi text-2xl text-white">Arabika</span>
-          <span className="font-azeret text-[32px] font-semibold leading-none text-[#f0a12f]">{arabicaPercent}%</span>
+          <span className="font-azeret text-[32px] font-semibold leading-none text-[#f0a12f]">{arabicaPercent}</span>
         </div>
 
         <div className="relative">
@@ -30,7 +30,7 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
 
         <div className="mt-8 flex items-center justify-between">
           <span className="font-gochi text-2xl text-white">Robusta</span>
-          <span className="font-azeret text-[32px] font-semibold leading-none text-[#f0a12f]">{robusta}%</span>
+          <span className="font-azeret text-[32px] font-semibold leading-none text-[#f0a12f]">{robusta}</span>
         </div>
       </div>
 

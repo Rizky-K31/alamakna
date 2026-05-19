@@ -61,13 +61,13 @@ export const grindData = [
     id: 'medium',
     label: 'Medium',
     labelId: 'Sedang',
-    brewMethods: ['V60', 'Aeropress', 'Drip Coffee', 'Vietnam Drip', 'Kalita Wave'],
+    brewMethods: ['V60', 'Aeropress', 'Cupping', 'Vietnam Drip', 'Kalita Wave', 'V60 Switch'],
   },
   {
     id: 'fine',
     label: 'Fine',
     labelId: 'Halus',
-    brewMethods: ['Espresso', 'Moka Pot', 'Turkish', 'Syphon'],
+    brewMethods: ['Espresso', 'Moka Pot', 'Turkish', 'Syphon', 'Tubruk', 'ROK Presso'],
   },
 ];
 
