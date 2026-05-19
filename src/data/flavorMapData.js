@@ -10,7 +10,7 @@ export const coffeeMapRegions = [
   {
     id: 'sumatera-barat',
     name: 'Sumatera Barat',
-    x: '12.5%',
+    x: '12%',
     y: '48%',
     color: '#bb5f4f',
     notes: ['Solok', 'Kerinci', 'Minangkabau'],
@@ -22,6 +22,14 @@ export const coffeeMapRegions = [
     y: '33%',
     color: '#4eb5db',
     notes: ['Mandailing', 'Lintong', 'Sidikalang', 'Dairi', 'Tapanuli'],
+  },
+    {
+    id: 'bengkulu',
+    name: 'Bengkulu',
+    x: '16%',
+    y: '63%',
+    color: '#a7ad85',
+    notes: ['Rejang Lebong', 'Kepahiang'],
   },
   {
     id: 'lampung',
