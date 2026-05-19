@@ -16,7 +16,7 @@ export const coffeeData = {
       'Flores',
     ],
     deskripsi:
-      'Kopi Arabika berasal dari Ethiopia, yang dikenal sebagai tempat awal tumbuhnya tanaman kopi secara alami. Dari sana, Arabika menyebar ke Yaman dan mulai dibudidayakan sebagai komoditas pertanian. Saat ini, Arabika banyak ditanam di daerah tropis dengan dataran tinggi yang memiliki suhu sejuk dan kondisi ideal untuk menghasilkan cita rasa yang kompleks.',
+      'Kopi Arabika lahir dari tanah Ethiopia, tempat pertama di dunia di mana tanaman kopi tumbuh secara liar di alam bebas. Dari sana, Arabika melakukan perjalanan panjang ke Yaman, di mana ia mulai dibudidayakan sebagai komoditas pertanian dan menjadi bagian dari sejarah perdagangan dunia. Kini, Arabika tumbuh subur di dataran tinggi tropis dengan udara sejuk dan iklim yang ideal, menghasilkan biji kopi dengan cita rasa kompleks perpaduan antara keasaman yang segar, aroma bunga, dan sentuhan buah yang khas.',
     specs: [
       { label: 'Profil Rasa', value: 'Lebih halus, kompleks, manis, dan asam' },
       { label: 'Rasa', value: 'Fruity, floral, berry, nutty, chocolate' },
@@ -42,7 +42,7 @@ export const coffeeData = {
       'Toraja',
     ],
     deskripsi:
-      'Kopi Robusta dikenal memiliki karakter rasa yang lebih kuat dan pahit dibandingkan Arabika. Kopi ini tumbuh dengan baik di dataran rendah dan memiliki ketahanan yang lebih tinggi terhadap perubahan lingkungan maupun hama.',
+      'Kopi Robusta berasal dari hutan tropis Afrika Tengah dan Barat, khususnya dari wilayah Kongo. Sesuai namanya, Robusta dikenal karena ketangguhannya mampu tumbuh di dataran rendah, tahan terhadap hama, dan tidak membutuhkan kondisi iklim yang terlalu spesifik. Dengan kandungan kafein yang lebih tinggi dari Arabika, Robusta menghadirkan karakter rasa yang kuat, tebal, dan sedikit pahit, dengan aroma earthy yang khas. Biji kopi ini menjadi tulang punggung espresso dan kopi-kopi klasik yang penuh karakter.',
     specs: [
       { label: 'Profil Rasa', value: 'Kuat, bold, dan pahit' },
       { label: 'Rasa', value: 'Woody, earthy, harsh, nutty' },
