@@ -2,18 +2,33 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
   const robusta = 100 - arabicaPercent;
 
   return (
-    <div className="mx-auto min-h-[430px] w-full max-w-[500px] rounded-[10px] bg-card px-6 py-9 text-left shadow-2xl sm:px-8 md:min-h-[507px] md:px-10 md:py-12">
-      <h3 className="mb-9 text-center font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:mb-12">
-        Blend Ratio
-      </h3>
+    <div className="mx-auto flex min-h-[520px] w-full flex-col rounded-[8px] border border-white/10 bg-black/85 p-8 text-left shadow-2xl shadow-black/40 backdrop-blur-sm md:p-10">
+      <div className="mb-10 flex items-start justify-between gap-5">
+        <div>
+          <h3 className="mt-2 font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:text-3xl">
+            Blend Ratio
+          </h3>
+        </div>
+      </div>
 
-      <div className="mb-10">
-        <div className="mb-7 flex items-center justify-between">
-          <span className="font-gochi text-2xl text-white">Arabika</span>
-          <span className="font-azeret text-[32px] font-semibold leading-none text-[#f0a12f]">{arabicaPercent}</span>
+      <div>
+        <div className="mb-7 grid grid-cols-2 gap-4">
+          <div className="rounded-[8px] border border-white/10 bg-white/10 px-5 py-5">
+            <span className="block font-gochi text-3xl leading-none text-white">Arabika</span>
+            <span className="mt-2 block font-azeret text-3xl font-bold leading-none text-[#f0a12f]">
+              {arabicaPercent}%
+            </span>
+          </div>
+
+          <div className="rounded-[8px] border border-white/10 bg-white/10 px-5 py-5">
+            <span className="block font-gochi text-3xl leading-none text-white">Robusta</span>
+            <span className="mt-2 block font-azeret text-3xl font-bold leading-none text-[#f0a12f]">
+              {robusta}%
+            </span>
+          </div>
         </div>
 
-        <div className="relative">
+        <div className="mt-10 px-1">
           <input
             type="range"
             min="0"
@@ -27,18 +42,16 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
             }}
           />
         </div>
-
-        <div className="mt-8 flex items-center justify-between">
-          <span className="font-gochi text-2xl text-white">Robusta</span>
-          <span className="font-azeret text-[32px] font-semibold leading-none text-[#f0a12f]">{robusta}</span>
-        </div>
       </div>
 
-      <div className="mt-10 rounded-[10px] bg-[#1e1e1e] px-5 py-5 md:mt-12">
-        <h4 className="mb-5 font-azeret text-xl font-extrabold text-white md:text-2xl">
+      <div className="mt-20 rounded-[8px] border border-white/10 bg-[#1e1e1e] px-8 py-6 md:mt-24">
+        <p className="mb-2 font-azeret text-[10px] font-bold uppercase tracking-[0.24em] text-white/45">
+          Taste Result
+        </p>
+        <h4 className="mb-4 font-azeret text-2xl font-extrabold text-white md:text-3xl">
           {tasteLabel}
         </h4>
-        <p className="break-words font-azeret text-base font-extralight leading-normal text-white md:text-lg">
+        <p className="font-azeret text-base font-extralight leading-relaxed text-white/90">
           {tasteDesc}
         </p>
       </div>

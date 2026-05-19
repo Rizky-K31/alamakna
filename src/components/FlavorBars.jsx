@@ -6,20 +6,29 @@ export default function FlavorBars({ flavor }) {
   ];
 
   return (
-    <div className="mx-auto min-h-[360px] w-full max-w-[500px] rounded-[10px] bg-card px-6 py-9 text-left shadow-2xl sm:px-8 md:min-h-[507px] md:px-10 md:py-12">
-      <h3 className="mb-12 text-center font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:mb-20">
-        Profil Rasa
-      </h3>
+    <div className="mx-auto min-h-[520px] w-full rounded-[8px] border border-white/10 bg-black/85 p-6 text-left shadow-2xl shadow-black/40 backdrop-blur-sm md:p-8">
+      <div className="mb-12 flex items-start justify-between gap-5">
+        <div>
+          <h3 className="mt-2 font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:text-3xl">
+            Profil Rasa
+          </h3>
+        </div>
+      </div>
 
-      <div className="space-y-8 md:space-y-11">
+      <div className="space-y-10">
         {bars.map((bar) => (
           <div key={bar.label}>
-            <span className="mb-3 block font-gochi text-2xl text-white">
-              {bar.label}
-            </span>
-            <div className="h-3 overflow-hidden rounded-[10px] bg-[#5c2e0e]">
+            <div className="mb-3 flex items-end justify-between gap-4">
+              <span className="font-gochi text-3xl leading-none text-white">
+                {bar.label}
+              </span>
+              <span className="font-azeret text-xl font-bold leading-none text-[#f0a12f]">
+                {bar.value / 10}
+              </span>
+            </div>
+            <div className="h-4 overflow-hidden rounded-full bg-[#5c2e0e]">
               <div
-                className="h-full rounded-[10px] bg-[#f0a12f] transition-all duration-500"
+                className="h-full rounded-full bg-[#f0a12f] transition-all duration-500"
                 style={{ width: `${bar.value}%` }}
               />
             </div>
