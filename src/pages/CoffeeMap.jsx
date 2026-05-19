@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import indonesiaMapSvg from '../assets/maps/indonesia-map.svg?raw';
 import { coffeeMapRegions } from '../data/flavorMapData';
 
-export default function FlavorMap() {
+export default function CoffeeMap() {
   const mapMarkup = useMemo(
     () => indonesiaMapSvg.replace(/<\?xml[\s\S]*?\?>\s*/, '').replace(/<!--[\s\S]*?-->\s*/, ''),
     [],
