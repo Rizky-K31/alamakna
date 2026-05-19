@@ -1,43 +1,143 @@
+export const blendData = [
+  {
+    ratio: '0/100',
+    arabica: 0,
+    robusta: 100,
+    acidity: 2,
+    body: 8,
+    bitterness: 8,
+    label: 'Bitter & Strong',
+    desc: 'Rasa pahit sangat dominan dengan body tebal dan aftertaste yang kuat. Karakter Robusta terasa penuh, pekat, dan cenderung berat.',
+  },
+  {
+    ratio: '10/90',
+    arabica: 10,
+    robusta: 90,
+    acidity: 2,
+    body: 8,
+    bitterness: 8,
+    label: 'Intense & Bitter',
+    desc: 'Rasa sangat intens dengan dominasi pahit yang kuat. Body terasa penuh dan tebal, cocok untuk karakter kopi yang bold.',
+  },
+  {
+    ratio: '20/80',
+    arabica: 20,
+    robusta: 80,
+    acidity: 3,
+    body: 7,
+    bitterness: 7,
+    label: 'Bold & earthy',
+    desc: 'Rasa kuat dan tegas dengan karakter earthy yang menonjol. Pahit masih dominan, sedangkan keasaman terasa sangat rendah.',
+  },
+  {
+    ratio: '30/70',
+    arabica: 30,
+    robusta: 70,
+    acidity: 4,
+    body: 7,
+    bitterness: 7,
+    label: 'Earthy',
+    desc: 'Karakter Robusta masih cukup dominan dengan rasa pahit dan earthy. Namun, tambahan Arabika mulai memberi sedikit keasaman ringan pada rasa akhir.',
+  },
+  {
+    ratio: '40/60',
+    arabica: 40,
+    robusta: 60,
+    acidity: 4,
+    body: 6,
+    bitterness: 6,
+    label: 'Rich & Complex',
+    desc: 'Rasa mulai terasa lebih kompleks karena perpaduan body Robusta dan keasaman Arabika. Karakter pahit masih ada, tetapi tidak terlalu mendominasi.',
+  },
+  {
+    ratio: '50/50',
+    arabica: 50,
+    robusta: 50,
+    acidity: 5,
+    body: 6,
+    bitterness: 5,
+    label: 'Balance',
+    desc: 'Rasa berada pada titik seimbang antara asam, pahit, dan body. Arabika memberi kesan cerah, sedangkan Robusta memberi kekuatan dan ketebalan rasa.',
+  },
+  {
+    ratio: '60/40',
+    arabica: 60,
+    robusta: 40,
+    acidity: 6,
+    body: 5,
+    bitterness: 5,
+    label: 'Balanced & Smooth',
+    desc: 'Perpaduan rasa terasa seimbang dan lebih halus. Keasaman mulai lebih terasa, sementara pahit Robusta tetap memberi body yang cukup kuat.',
+  },
+  {
+    ratio: '70/30',
+    arabica: 70,
+    robusta: 30,
+    acidity: 6,
+    body: 5,
+    bitterness: 4,
+    label: 'Smooth',
+    desc: 'Rasa cenderung halus dengan keasaman yang lebih menonjol. Pahit mulai berkurang, sehingga menghasilkan rasa yang lebih ringan dan nyaman.',
+  },
+  {
+    ratio: '80/20',
+    arabica: 80,
+    robusta: 20,
+    acidity: 7,
+    body: 4,
+    bitterness: 4,
+    label: 'Smooth & Bright',
+    desc: 'Keasaman cerah mulai mendominasi dengan rasa yang halus dan ringan. Sentuhan Robusta masih memberi sedikit body agar rasa tidak terlalu tipis.',
+  },
+  {
+    ratio: '90/10',
+    arabica: 90,
+    robusta: 10,
+    acidity: 7,
+    body: 4,
+    bitterness: 3,
+    label: 'Bright & Fruity',
+    desc: 'Karakter Arabika sangat dominan dengan rasa cerah, ringan, dan cenderung fruity. Pahit sangat rendah, hanya memberi sedikit kedalaman rasa.',
+  },
+  {
+    ratio: '100/0',
+    arabica: 100,
+    robusta: 0,
+    acidity: 8,
+    body: 4,
+    bitterness: 3,
+    label: 'Bright & Fruity',
+    desc: 'Rasa cerah, ringan, dan fruity sangat menonjol. Body lebih ringan dengan tingkat pahit rendah, cocok untuk penikmat kopi yang menyukai rasa clean dan asam segar.',
+  },
+];
+
+const getBlendData = (arabicaPercent) => {
+  const nearestStep = Math.min(100, Math.max(0, Math.round(arabicaPercent / 10) * 10));
+  return blendData.find((blend) => blend.arabica === nearestStep) || blendData[5];
+};
+
 /**
- * Kalkulasi profil rasa berdasarkan persentase Arabika
+ * Ambil profil rasa dari data blend statis.
  */
 export function calculateFlavor(arabicaPercent) {
-  const robusta = 100 - arabicaPercent;
+  const blend = getBlendData(arabicaPercent);
 
   return {
-    acidity: Math.round(arabicaPercent * 0.85 + robusta * 0.15),
-    body: Math.round(arabicaPercent * 0.3 + robusta * 0.85),
-    bitterness: Math.round(arabicaPercent * 0.15 + robusta * 0.8),
+    acidity: blend.acidity * 10,
+    body: blend.body * 10,
+    bitterness: blend.bitterness * 10,
   };
 }
 
 /**
- * Tentukan label dan deskripsi rasa
+ * Ambil label dan deskripsi rasa dari data blend statis.
  */
 export function getTasteLabel(arabicaPercent) {
-  if (arabicaPercent >= 80)
-    return {
-      label: 'Bright & Fruity',
-      desc: 'Keasaman cerah mendominasi dengan sentuhan buah-buahan. Body ringan, cocok untuk penikmat kopi yang suka rasa clean dan segar.',
-    };
-  if (arabicaPercent >= 60)
-    return {
-      label: 'Balanced & Smooth',
-      desc: 'Perpaduan seimbang antara keasaman dan body. Rasa halus dengan sedikit sentuhan pahit di akhir.',
-    };
-  if (arabicaPercent >= 40)
-    return {
-      label: 'Rich & Complex',
-      desc: 'Body mulai terasa kuat dengan kompleksitas rasa. Keasaman masih terasa namun diperkaya oleh karakter earthy Robusta.',
-    };
-  if (arabicaPercent >= 20)
-    return {
-      label: 'Bold & Earthy',
-      desc: 'Rasa kuat dan tegas dengan body penuh. Karakter earthy dan pahit mendominasi, keasaman sangat minimal.',
-    };
+  const blend = getBlendData(arabicaPercent);
+
   return {
-    label: 'Intense & Bitter',
-    desc: 'Rasa sangat kuat dengan pahit yang mendominasi. Body sangat penuh, ideal untuk espresso bold.',
+    label: blend.label,
+    desc: blend.desc,
   };
 }
 

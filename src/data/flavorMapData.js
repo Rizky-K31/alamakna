@@ -23,13 +23,21 @@ export const coffeeMapRegions = [
     color: '#4eb5db',
     notes: ['Mandailing', 'Lintong', 'Sidikalang', 'Dairi', 'Tapanuli'],
   },
-    {
+  {
     id: 'bengkulu',
     name: 'Bengkulu',
     x: '16%',
     y: '63%',
     color: '#a7ad85',
     notes: ['Rejang Lebong', 'Kepahiang'],
+  },
+  {
+    id: 'sumatera-selatan',
+    name: 'Sumatera Selatan',
+    x: '20%',
+    y: '62%',
+    color: '#3b1212',
+    notes: ['Pagar Alam', 'Semendo', 'Lahat', 'Muara Enim'],
   },
   {
     id: 'lampung',
