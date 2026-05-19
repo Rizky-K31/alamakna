@@ -9,11 +9,11 @@ export default function CoffeeMap() {
   );
 
   return (
-    <section id="peta-kopi" className="scroll-mt-14 bg-[#f8f7f3] text-[#71664f]">
+    <section id="peta-kopi" className="scroll-mt-14 bg-[#71664f]">
       <div className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-5 pb-20 sm:px-8 md:px-12 lg:px-20">
         <h2
           style={{ marginTop: '90px' }}
-          className="text-center font-gochi text-[50px] font-bold leading-tight text-[#71664f] sm:text-[56px] md:text-[66px]"
+          className="text-center font-gochi text-[50px] font-bold leading-tight text-[#f8f7f3] sm:text-[56px] md:text-[66px]"
         >
           PETA KOPI INDONESIA
         </h2>
@@ -33,7 +33,7 @@ export default function CoffeeMap() {
                 style={{ left: region.x, top: region.y, backgroundColor: region.color }}
                 aria-label={region.name}
               >
-                <span className="pointer-events-none absolute left-1/2 top-0 z-[60] w-max max-w-[210px] -translate-x-1/2 -translate-y-[calc(100%+18px)] rounded-md bg-[#71664f] px-4 py-2 text-center font-akshar text-sm leading-tight text-white opacity-0 shadow-[0_14px_32px_rgba(69,52,38,0.2)] transition-opacity group-hover:opacity-100 group-focus:opacity-100">
+                <span className="pointer-events-none absolute left-1/2 top-0 z-[60] w-max max-w-[210px] -translate-x-1/2 -translate-y-[calc(100%+18px)] rounded-md bg-[#211E17] px-4 py-2 text-center font-akshar text-sm leading-tight text-white opacity-0 shadow-[0_14px_32px_rgba(69,52,38,0.2)] transition-opacity group-hover:opacity-100 group-focus:opacity-100">
                   <strong className="block font-azeret text-xs uppercase leading-none">
                     {region.name}
                   </strong>
