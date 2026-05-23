@@ -21,7 +21,6 @@
   --font-azeret: 'Azeret Mono', monospace;
 }
 
-/* Global Resets */
 * {
   margin: 0;
   padding: 0;
@@ -114,7 +113,6 @@ body {
   transition: fill 180ms ease, opacity 180ms ease;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -132,7 +130,6 @@ html {
   border-radius: 4px;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -172,7 +169,6 @@ html {
   animation: slideIn 0.6s ease forwards;
 }
 
-/* Delay utilities */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }

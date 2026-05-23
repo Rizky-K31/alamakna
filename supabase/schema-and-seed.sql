@@ -1,6 +1,3 @@
--- ALAMAKNA static content schema + seed data
--- Jalankan di Supabase SQL Editor.
-
 create table if not exists public.coffee_types (
   id text primary key,
   name text not null,

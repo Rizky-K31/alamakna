@@ -116,9 +116,6 @@ const getBlendData = (arabicaPercent, source = blendData) => {
   return source.find((blend) => blend.arabica === nearestStep) || source.find((blend) => blend.arabica === 50) || blendData[5];
 };
 
-/**
- * Ambil profil rasa dari data blend statis.
- */
 export function calculateFlavor(arabicaPercent, source) {
   const blend = getBlendData(arabicaPercent, source);
 
@@ -129,9 +126,6 @@ export function calculateFlavor(arabicaPercent, source) {
   };
 }
 
-/**
- * Ambil label dan deskripsi rasa dari data blend statis.
- */
 export function getTasteLabel(arabicaPercent, source) {
   const blend = getBlendData(arabicaPercent, source);
 
@@ -141,9 +135,6 @@ export function getTasteLabel(arabicaPercent, source) {
   };
 }
 
-/**
- * Data grind size dan rekomendasi brew
- */
 export const grindData = [
   {
     id: 'beans',
@@ -171,9 +162,6 @@ export const grindData = [
   },
 ];
 
-/**
- * Semua brew methods dengan grind size mapping
- */
 export const allBrewMethods = [
   { name: 'French Press', grind: 'coarse' },
   { name: 'Cold Brew', grindIds: ['coarse'] },
