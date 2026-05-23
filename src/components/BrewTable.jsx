@@ -17,28 +17,45 @@ import tubrukImage from '../assets/tubruk.webp';
 
 const brewImages = {
   Aeropress: aeropressImage,
+  'aeropress.webp': aeropressImage,
   Chemex: chemexImage,
+  'chemex.webp': chemexImage,
   'Cold Brew': coldBrewImage,
+  'cold_brew.webp': coldBrewImage,
   Cupping: cuppingImage,
+  'cupping.webp': cuppingImage,
   Espresso: espressoImage,
+  'espresso.webp': espressoImage,
   'French Press': frenchPressImage,
+  'french_press.webp': frenchPressImage,
   'Kalita Wave': kalitaWaveImage,
+  'kalita_wave.webp': kalitaWaveImage,
   'Moka Pot': mokaPotImage,
+  'moka_pot.webp': mokaPotImage,
   'ROK Presso': rokPressoImage,
+  'rok_presso.webp': rokPressoImage,
   Syphon: syphonImage,
+  'syphon.webp': syphonImage,
   Tubruk: tubrukImage,
+  'tubruk.webp': tubrukImage,
   Turkish: turkishImage,
+  'turkish.webp': turkishImage,
   V60: v60Image,
+  'v60.webp': v60Image,
   'V60 Switch': v60SwitchImage,
+  'v60_switch.webp': v60SwitchImage,
   'Vietnam Drip': vietnamDripImage,
+  'vietnam_drip.webp': vietnamDripImage,
 };
 
-export default function BrewTable({ selectedGrind }) {
+export default function BrewTable({ brewMethods = allBrewMethods, selectedGrind }) {
+  const visibleMethods = brewMethods.filter((method) => method.id !== 'simpan-biji' && method.name !== 'Simpan Biji');
+
   return (
     <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-      {allBrewMethods.map((method) => {
-        const isMatch = method.grind === selectedGrind;
-        const brewImage = brewImages[method.name];
+      {visibleMethods.map((method) => {
+        const isMatch = method.grindIds?.includes(selectedGrind) || method.grind === selectedGrind;
+        const brewImage = brewImages[method.imageKey] || brewImages[method.name];
 
         return (
           <div

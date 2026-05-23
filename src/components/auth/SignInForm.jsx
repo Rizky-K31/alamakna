@@ -46,7 +46,7 @@ export default function SignInForm({
             <button
               type="button"
               onClick={() => onChangeMode('reset')}
-              className="font-akshar text-sm text-white-400 tr  ansition-colors"
+              className="font-akshar text-sm text-white/70 transition-colors hover:text-white"
             >
               Lupa password?
             </button>

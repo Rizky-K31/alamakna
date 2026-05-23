@@ -111,16 +111,16 @@ export const blendData = [
   },
 ];
 
-const getBlendData = (arabicaPercent) => {
+const getBlendData = (arabicaPercent, source = blendData) => {
   const nearestStep = Math.min(100, Math.max(0, Math.round(arabicaPercent / 10) * 10));
-  return blendData.find((blend) => blend.arabica === nearestStep) || blendData[5];
+  return source.find((blend) => blend.arabica === nearestStep) || source.find((blend) => blend.arabica === 50) || blendData[5];
 };
 
 /**
  * Ambil profil rasa dari data blend statis.
  */
-export function calculateFlavor(arabicaPercent) {
-  const blend = getBlendData(arabicaPercent);
+export function calculateFlavor(arabicaPercent, source) {
+  const blend = getBlendData(arabicaPercent, source);
 
   return {
     acidity: blend.acidity * 10,
@@ -132,8 +132,8 @@ export function calculateFlavor(arabicaPercent) {
 /**
  * Ambil label dan deskripsi rasa dari data blend statis.
  */
-export function getTasteLabel(arabicaPercent) {
-  const blend = getBlendData(arabicaPercent);
+export function getTasteLabel(arabicaPercent, source) {
+  const blend = getBlendData(arabicaPercent, source);
 
   return {
     label: blend.label,
@@ -149,7 +149,7 @@ export const grindData = [
     id: 'beans',
     label: 'Beans',
     labelId: 'Biji Kopi',
-    brewMethods: ['Cold Brew', 'Simpan Biji'],
+    brewMethods: [],
   },
   {
     id: 'coarse',
@@ -176,7 +176,7 @@ export const grindData = [
  */
 export const allBrewMethods = [
   { name: 'French Press', grind: 'coarse' },
-  { name: 'Cold Brew', grind: 'coarse' },
+  { name: 'Cold Brew', grindIds: ['coarse'] },
   { name: 'Chemex', grind: 'coarse' },
   { name: 'Cupping', grind: 'medium' },
   { name: 'Vietnam Drip', grind: 'medium' },

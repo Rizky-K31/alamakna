@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import BlendSimulator from '../components/BlendSimulator';
 import BrewTable from '../components/BrewTable';
 import FlavorBars from '../components/FlavorBars';
@@ -7,22 +7,61 @@ import beansBg from '../assets/beans.webp';
 import coarseImg from '../assets/coarse.webp';
 import fineImg from '../assets/fine.webp';
 import mediumImg from '../assets/medium.webp';
-import { calculateFlavor, getTasteLabel, grindData } from '../utils/flavorCalculator';
+import { getLocalSimulationData, fetchSimulationData } from '../lib/contentApi';
+import { calculateFlavor, getTasteLabel } from '../utils/flavorCalculator';
 
 const grindImages = {
   beans: beansBg,
+  'beans.webp': beansBg,
   coarse: coarseImg,
+  'coarse.webp': coarseImg,
   medium: mediumImg,
+  'medium.webp': mediumImg,
   fine: fineImg,
+  'fine.webp': fineImg,
 };
 
 export default function Simulation() {
   const [arabicaPercent, setArabicaPercent] = useState(50);
   const [selectedGrind, setSelectedGrind] = useState('beans');
+  const [simulationData, setSimulationData] = useState(getLocalSimulationData);
 
-  const flavor = useMemo(() => calculateFlavor(arabicaPercent), [arabicaPercent]);
-  const taste = useMemo(() => getTasteLabel(arabicaPercent), [arabicaPercent]);
-  const grind = grindData.find((item) => item.id === selectedGrind);
+  const { allBrewMethods, blendData, grindData } = simulationData;
+  const flavor = useMemo(() => calculateFlavor(arabicaPercent, blendData), [arabicaPercent, blendData]);
+  const taste = useMemo(() => getTasteLabel(arabicaPercent, blendData), [arabicaPercent, blendData]);
+  const grind = grindData.find((item) => item.id === selectedGrind) || grindData[0];
+  const robustaPercent = 100 - arabicaPercent;
+  const simulationStats = [
+    [`${arabicaPercent}%`, 'Arabika'],
+    [`${robustaPercent}%`, 'Robusta'],
+    [grind?.labelId || '-', 'Grind'],
+  ];
+  const grindImage = grindImages[grind?.imageKey] || grindImages[selectedGrind] || beansBg;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchSimulationData()
+      .then((nextSimulationData) => {
+        if (!isMounted) {
+          return;
+        }
+
+        setSimulationData(nextSimulationData);
+        setSelectedGrind((currentGrind) => (
+          nextSimulationData.grindData.some((item) => item.id === currentGrind)
+            ? currentGrind
+            : nextSimulationData.grindData[0]?.id || 'beans'
+        ));
+      })
+      .catch((error) => {
+        console.error('Gagal memuat data simulasi:', error);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <main id="simulation" className="scroll-mt-[50px]">
@@ -52,7 +91,7 @@ export default function Simulation() {
             </p>
 
             <div className="mt-7 grid max-w-xl grid-cols-3 gap-3">
-              {[].map(([value, label]) => (
+              {simulationStats.map(([value, label]) => (
                 <div key={label} className="rounded-[8px] border border-white/12 bg-white/[0.08] px-4 py-4 shadow-xl shadow-black/20 backdrop-blur-xl">
                   <span className="block font-azeret text-2xl font-extrabold leading-none text-[#f0a12f] md:text-3xl">
                     {value}
@@ -109,7 +148,7 @@ export default function Simulation() {
           <div className="grid w-full justify-center gap-5 lg:grid-cols-[minmax(320px,0.9fr)_minmax(480px,1.1fr)]">
             <div className="group overflow-hidden rounded-[8px] border border-white/12 bg-white/[0.08] shadow-2xl shadow-black/35 backdrop-blur-xl">
               <img
-                src={grindImages[selectedGrind]}
+                src={grindImage}
                 alt={`${grind?.labelId || 'Bubuk kopi'} grind`}
                 className="h-[320px] w-full object-cover transition-transform duration-700 group-hover:scale-105 md:h-[420px] xl:h-[500px]"
               />
@@ -121,7 +160,7 @@ export default function Simulation() {
             </div>
 
             <div className="rounded-[8px] border border-white/14 bg-[#f2e7d2]/92 p-5 text-left shadow-2xl shadow-black/25 backdrop-blur-xl md:p-7">
-              <GrindSize selectedGrind={selectedGrind} onGrindChange={setSelectedGrind} />
+              <GrindSize grindData={grindData} selectedGrind={selectedGrind} onGrindChange={setSelectedGrind} />
 
               <div className="mt-7">
                 <div className="mb-4 flex items-center justify-between gap-4">
@@ -135,7 +174,7 @@ export default function Simulation() {
                   </div>
                 </div>
 
-                <BrewTable selectedGrind={selectedGrind} />
+                <BrewTable brewMethods={allBrewMethods} selectedGrind={selectedGrind} />
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteLabel, tasteDesc }) {
   const robusta = 100 - arabicaPercent;
-  const dominantBean = arabicaPercent >= robusta ? '' : '';
 
   return (
     <div className="mx-auto flex min-h-[560px] w-full flex-col rounded-[8px] border border-white/14 bg-[#111111]/80 p-5 text-left shadow-2xl shadow-black/45 backdrop-blur-2xl md:p-7">
@@ -45,9 +44,10 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
             onChange={(e) => onPercentChange(Number(e.target.value))}
             className="coffee-range h-3 w-full cursor-pointer appearance-none rounded-full"
             style={{
-              background: `linear-gradient(to right, #885600 0%, #f0a12f ${100 - arabicaPercent}%, #f0a12f ${100 - arabicaPercent}%, #885600 100%)`,
+              background: `linear-gradient(to right, #f0a12f 0%, #f0a12f ${arabicaPercent}%, #885600 ${arabicaPercent}%, #885600 100%)`,
             }}
             aria-label="Persentase Arabika"
+            aria-valuetext={`${arabicaPercent}% Arabika, ${robusta}% Robusta`}
           />
         </div>
 

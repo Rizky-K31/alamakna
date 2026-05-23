@@ -1,12 +1,32 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import indonesiaMapSvg from '../assets/maps/indonesia-map.svg?raw';
 import { coffeeMapRegions } from '../data/flavorMapData';
+import { fetchCoffeeMapRegions } from '../lib/contentApi';
 
 export default function CoffeeMap() {
+  const [regions, setRegions] = useState(coffeeMapRegions);
   const mapMarkup = useMemo(
     () => indonesiaMapSvg.replace(/<\?xml[\s\S]*?\?>\s*/, '').replace(/<!--[\s\S]*?-->\s*/, ''),
     [],
   );
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchCoffeeMapRegions()
+      .then((nextRegions) => {
+        if (isMounted && nextRegions.length) {
+          setRegions(nextRegions);
+        }
+      })
+      .catch((error) => {
+        console.error('Gagal memuat data peta kopi:', error);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section id="peta-kopi" className="scroll-mt-14 bg-[#D8C9AF]">
@@ -25,7 +45,7 @@ export default function CoffeeMap() {
               dangerouslySetInnerHTML={{ __html: mapMarkup }}
             />
 
-            {coffeeMapRegions.map((region) => (
+            {regions.map((region) => (
               <button
                 key={region.id}
                 type="button"

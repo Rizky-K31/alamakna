@@ -1,6 +1,6 @@
-import { grindData } from '../utils/flavorCalculator';
+import { grindData as fallbackGrindData } from '../utils/flavorCalculator';
 
-export default function GrindSize({ selectedGrind, onGrindChange }) {
+export default function GrindSize({ grindData = fallbackGrindData, selectedGrind, onGrindChange }) {
   return (
     <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
       {grindData.map((grind) => (

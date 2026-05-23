@@ -1,13 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import arabikaImg from '../assets/Arabika.webp';
 import beansBg from '../assets/footer.webp';
 import robustaImg from '../assets/Robusta.webp';
 import { coffeeData } from '../data/coffeeData';
+import { fetchCoffeeTypes } from '../lib/contentApi';
+
+const beanImages = {
+  arabika: arabikaImg,
+  robusta: robustaImg,
+  'Arabika.webp': arabikaImg,
+  'Robusta.webp': robustaImg,
+};
 
 export default function Education() {
   const [activeTab, setActiveTab] = useState('arabika');
-  const data = coffeeData[activeTab];
-  const beanImage = activeTab === 'arabika' ? arabikaImg : robustaImg;
+  const [coffeeTypes, setCoffeeTypes] = useState(coffeeData);
+  const data = coffeeTypes[activeTab] || coffeeData.arabika;
+  const tabs = Object.keys(coffeeTypes);
+  const beanImage = beanImages[data.imageKey] || beanImages[activeTab] || arabikaImg;
 
   const specs = [
     { label: 'Profil', value: data.profil },
@@ -17,6 +27,29 @@ export default function Education() {
     { label: 'Harga', value: data.harga },
     { label: 'Jenis', value: data.asal.join(', ') },
   ];
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchCoffeeTypes()
+      .then((nextCoffeeTypes) => {
+        if (!isMounted || !Object.keys(nextCoffeeTypes).length) {
+          return;
+        }
+
+        setCoffeeTypes(nextCoffeeTypes);
+        setActiveTab((currentTab) => (
+          nextCoffeeTypes[currentTab] ? currentTab : Object.keys(nextCoffeeTypes)[0]
+        ));
+      })
+      .catch((error) => {
+        console.error('Gagal memuat data edukasi kopi:', error);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section>
@@ -46,7 +79,7 @@ export default function Education() {
 
         <div className="flex min-h-[520px] flex-col justify-center bg-section-bg px-8 py-12 md:px-20">
           <div className="mb-6 grid grid-cols-2 border border-navbar">
-            {['arabika', 'robusta'].map((tab) => (
+            {tabs.map((tab) => (
               <button
                 key={tab}
                 type="button"
@@ -55,7 +88,7 @@ export default function Education() {
                   activeTab === tab ? 'bg-accent text-dark' : 'bg-transparent text-navbar hover:bg-navbar/10'
                 }`}
               >
-                {tab}
+                {coffeeTypes[tab]?.name || tab}
               </button>
             ))}
           </div>

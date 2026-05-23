@@ -1,13 +1,46 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import arabikaImg from '../assets/Arabika.webp';
 import beansBg from '../assets/footer.webp';
 import robustaImg from '../assets/Robusta.webp';
 import { coffeeData } from '../data/coffeeData';
+import { fetchCoffeeTypes } from '../lib/contentApi';
+
+const beanImages = {
+  arabika: arabikaImg,
+  robusta: robustaImg,
+  'Arabika.webp': arabikaImg,
+  'Robusta.webp': robustaImg,
+};
 
 export default function CoffeeBeans() {
   const [activeTab, setActiveTab] = useState('arabika');
-  const data = coffeeData[activeTab];
-  const beanImage = activeTab === 'arabika' ? arabikaImg : robustaImg;
+  const [coffeeTypes, setCoffeeTypes] = useState(coffeeData);
+  const data = coffeeTypes[activeTab] || coffeeData.arabika;
+  const tabs = Object.keys(coffeeTypes);
+  const beanImage = beanImages[data.imageKey] || beanImages[activeTab] || arabikaImg;
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchCoffeeTypes()
+      .then((nextCoffeeTypes) => {
+        if (!isMounted || !Object.keys(nextCoffeeTypes).length) {
+          return;
+        }
+
+        setCoffeeTypes(nextCoffeeTypes);
+        setActiveTab((currentTab) => (
+          nextCoffeeTypes[currentTab] ? currentTab : Object.keys(nextCoffeeTypes)[0]
+        ));
+      })
+      .catch((error) => {
+        console.error('Gagal memuat data jenis kopi:', error);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   return (
     <section id="education" className="scroll-mt-14">
@@ -40,7 +73,7 @@ export default function CoffeeBeans() {
         <div className="flex min-h-[680px] items-center justify-center bg-section-bg px-5 py-16 sm:px-8 md:px-14 lg:min-h-screen lg:py-20 xl:px-24">
           <div className="w-full max-w-[620px]">
             <div className="mb-6 grid grid-cols-2 border border-black">
-              {['arabika', 'robusta'].map((tab) => (
+              {tabs.map((tab) => (
                 <button
                   key={tab}
                   type="button"
@@ -51,7 +84,7 @@ export default function CoffeeBeans() {
                       : 'bg-transparent text-black hover:bg-[#373028]/10'
                   }`}
                 >
-                  {tab === 'arabika' ? 'Arabika' : 'Robusta'}
+                  {coffeeTypes[tab]?.name || tab}
                 </button>
               ))}
             </div>

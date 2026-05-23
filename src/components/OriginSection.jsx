@@ -2,31 +2,63 @@ import { useEffect, useState } from 'react';
 import gunungBatur from '../assets/gunung_batur.webp';
 import gunungMakale from '../assets/gunung_makale.webp';
 import gunungRinjani from '../assets/gunung_rinjani.webp';
+import { fetchOriginSlides } from '../lib/contentApi';
 
-const origins = [
+const originImages = {
+  'gunung_batur.webp': gunungBatur,
+  'gunung_makale.webp': gunungMakale,
+  'gunung_rinjani.webp': gunungRinjani,
+};
+
+const fallbackOrigins = [
   {
     id: 'makale',
     name: 'Gunung Makale',
     location: ['Sulawesi Selatan,', 'Indonesia'],
-    image: gunungMakale,
+    description: 'Dataran Tinggi Penghasil Biji Kopi Di Indonesia',
+    imageKey: 'gunung_makale.webp',
   },
   {
     id: 'batur',
     name: 'Gunung Batur',
     location: ['Bali,', 'Indonesia'],
-    image: gunungBatur,
+    description: 'Dataran Tinggi Penghasil Biji Kopi Di Indonesia',
+    imageKey: 'gunung_batur.webp',
   },
   {
     id: 'rinjani',
     name: 'Gunung Rinjani',
     location: ['Nusa Tenggara Barat,', 'Indonesia'],
-    image: gunungRinjani,
+    description: 'Dataran Tinggi Penghasil Biji Kopi Di Indonesia',
+    imageKey: 'gunung_rinjani.webp',
   },
 ];
 
 export default function OriginSection() {
+  const [origins, setOrigins] = useState(fallbackOrigins);
   const [activeIndex, setActiveIndex] = useState(0);
-  const activeOrigin = origins[activeIndex];
+  const activeOrigin = origins[activeIndex] || origins[0];
+
+  useEffect(() => {
+    let isMounted = true;
+
+    fetchOriginSlides()
+      .then((nextOrigins) => {
+        if (!isMounted || !nextOrigins.length) {
+          return;
+        }
+
+        setOrigins(nextOrigins);
+        setActiveIndex((currentIndex) => Math.min(currentIndex, nextOrigins.length - 1));
+      })
+      .catch((error) => {
+        console.error('Gagal memuat data origin:', error);
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -34,14 +66,14 @@ export default function OriginSection() {
     }, 4500);
 
     return () => window.clearInterval(intervalId);
-  }, []);
+  }, [origins.length]);
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden bg-black">
       {origins.map((origin, index) => (
         <img
           key={origin.id}
-          src={origin.image}
+          src={originImages[origin.imageKey] || gunungMakale}
           alt={`${origin.name} coffee origin`}
           width="1280"
           height="779"
@@ -65,8 +97,7 @@ export default function OriginSection() {
 
         <div className="absolute bottom-20 left-8 border-4 border-white/20 bg-black/25 px-3 py-2 md:left-[90px]">
           <p className="font-azeret text-[20px] font-bold leading-tight text-white md:text-[20px]">
-            Dataran Tinggi Penghasil<br />
-            Biji Kopi Di Indonesia
+            {activeOrigin.description}
           </p>
         </div>
 
