@@ -45,8 +45,10 @@ export default function CoffeeBeans() {
                   key={tab}
                   type="button"
                   onClick={() => setActiveTab(tab)}
-                  className={`h-14 border-r border-black font-gochi text-2xl text-black transition-colors last:border-r-0 focus:outline-none md:text-3xl ${
-                    activeTab === tab ? 'bg-accent' : 'bg-transparent hover:bg-black/5'
+                  className={`h-14 border-r border-black font-gochi text-2xl transition-colors last:border-r-0 focus:outline-none md:text-3xl ${
+                    activeTab === tab
+                      ? 'bg-[#373028] text-white'
+                      : 'bg-transparent text-black hover:bg-[#373028]/10'
                   }`}
                 >
                   {tab === 'arabika' ? 'Arabika' : 'Robusta'}
