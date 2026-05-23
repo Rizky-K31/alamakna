@@ -8,10 +8,10 @@ export default function GrindSize({ selectedGrind, onGrindChange }) {
           key={grind.id}
           type="button"
           onClick={() => onGrindChange(grind.id)}
-          className={`min-h-[74px] rounded-[8px] border px-4 py-3 text-center transition-all ${
+          className={`min-h-[78px] rounded-[8px] border px-3 py-3 text-center transition-all duration-300 ${
             selectedGrind === grind.id
-              ? 'border-accent bg-accent text-dark shadow-lg shadow-accent/25'
-              : 'border-navbar/15 bg-white/55 text-navbar hover:border-accent/60 hover:bg-white'
+              ? 'border-navbar bg-navbar text-white shadow-lg shadow-navbar/25'
+              : 'border-navbar/15 bg-white/60 text-navbar hover:-translate-y-1 hover:border-accent/60 hover:bg-white'
           }`}
         >
           <span className="block font-gochi text-3xl leading-none">{grind.label}</span>

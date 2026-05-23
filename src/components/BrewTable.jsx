@@ -35,20 +35,18 @@ const brewImages = {
 
 export default function BrewTable({ selectedGrind }) {
   return (
-    <div className="grid grid-cols-3 border border-navbar">
-      {allBrewMethods.map((method, index) => {
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+      {allBrewMethods.map((method) => {
         const isMatch = method.grind === selectedGrind;
-        const isLastColumn = (index + 1) % 3 === 0;
-        const isLastRow = index >= allBrewMethods.length - 3;
         const brewImage = brewImages[method.name];
 
         return (
           <div
             key={method.name}
-            className={`group relative flex min-h-[64px] items-center justify-center border-navbar px-3 text-center transition-colors ${
-              isLastColumn ? '' : 'border-r'
-            } ${isLastRow ? '' : 'border-b'} ${
-              isMatch ? 'bg-accent/80 text-dark' : 'bg-transparent text-navbar'
+            className={`group relative flex min-h-[66px] items-center justify-center rounded-[8px] border px-3 text-center transition-all duration-300 ${
+              isMatch
+                ? 'border-navbar bg-navbar text-white shadow-lg shadow-navbar/15'
+                : 'border-navbar/15 bg-white/35 text-navbar hover:-translate-y-1 hover:border-accent/60 hover:bg-white/70'
             }`}
             tabIndex={isMatch && brewImage ? 0 : undefined}
           >
