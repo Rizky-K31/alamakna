@@ -9,11 +9,11 @@ export default function CoffeeMap() {
   );
 
   return (
-    <section id="peta-kopi" className="scroll-mt-14 bg-[#71664f]">
+    <section id="peta-kopi" className="scroll-mt-14 bg-[#D8C9AF]">
       <div className="mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-5 pb-20 sm:px-8 md:px-12 lg:px-20">
         <h2
           style={{ marginTop: '90px' }}
-          className="text-center font-gochi text-[50px] font-bold leading-tight text-[#f8f7f3] sm:text-[56px] md:text-[66px]"
+          className="text-center font-gochi text-[50px] font-bold leading-tight text-[#373028] sm:text-[56px] md:text-[66px]"
         >
           PETA KOPI INDONESIA
         </h2>
