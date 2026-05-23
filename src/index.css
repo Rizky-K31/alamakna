@@ -89,7 +89,7 @@ body {
   background: var(--color-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
+  background: #373028;
   border-radius: 4px;
 }
 
