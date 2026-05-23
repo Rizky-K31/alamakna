@@ -4,7 +4,7 @@ export const coffeeMapRegions = [
     name: 'Aceh',
     x: '5%',
     y: '22%',
-    color: '#7f3a2d',
+    color: '#373028',
     notes: ['Takengon', 'Gayo', 'Aceh Tengah', 'Bener Meriah', 'Gayo Lues'],
   },
   {
@@ -12,7 +12,7 @@ export const coffeeMapRegions = [
     name: 'Sumatera Barat',
     x: '12%',
     y: '48%',
-    color: '#bb5f4f',
+    color: '#373028',
     notes: ['Solok', 'Kerinci', 'Minangkabau'],
   },
   {
@@ -20,7 +20,7 @@ export const coffeeMapRegions = [
     name: 'Sumatera Utara',
     x: '9%',
     y: '33%',
-    color: '#4eb5db',
+    color: '#373028',
     notes: ['Mandailing', 'Lintong', 'Sidikalang', 'Dairi', 'Tapanuli'],
   },
   {
@@ -28,7 +28,7 @@ export const coffeeMapRegions = [
     name: 'Bengkulu',
     x: '16%',
     y: '63%',
-    color: '#a7ad85',
+    color: '#373028',
     notes: ['Rejang Lebong', 'Kepahiang'],
   },
   {
@@ -36,7 +36,7 @@ export const coffeeMapRegions = [
     name: 'Sumatera Selatan',
     x: '20%',
     y: '62%',
-    color: '#3b1212',
+    color: '#373028',
     notes: ['Pagar Alam', 'Semendo', 'Lahat', 'Muara Enim'],
   },
   {
@@ -44,7 +44,7 @@ export const coffeeMapRegions = [
     name: 'Lampung',
     x: '22%',
     y: '69%',
-    color: '#756849',
+    color: '#373028',
     notes: ['Tanggamus', 'Lampung Barat', 'Liwa '],
   },
   {
@@ -52,7 +52,7 @@ export const coffeeMapRegions = [
     name: 'Jawa Barat',
     x: '27%',
     y: '80%',
-    color: '#c88351',
+    color: '#373028',
     notes: ['Garut', 'Ciwidey', 'Cianjur', 'Pangalengan', 'Bandung', 'Puntang '],
   },
   {
@@ -60,7 +60,7 @@ export const coffeeMapRegions = [
     name: 'Jawa Tengah',
     x: '31.5%',
     y: '81.5%',
-    color: '#8b4f2b',
+    color: '#373028',
     notes: ['Temanggung', 'Wonosobo', 'Dieng', 'Banjarnegara'],
   },
   {
@@ -68,7 +68,7 @@ export const coffeeMapRegions = [
     name: 'DI Yogyakarta',
     x: '33.5%',
     y: '83.8%',
-    color: '#be2e1e',
+    color: '#373028',
     notes: ['Merapi', 'Kulon Progo'],
   },
   {
@@ -76,7 +76,7 @@ export const coffeeMapRegions = [
     name: 'Jawa Timur',
     x: '37.5%',
     y: '83.5%',
-    color: '#7239b3',
+    color: '#373028',
     notes: ['Ijen', 'Malang', 'Dampit', 'Bondowoso', 'Jember'],
   },
   {
@@ -84,7 +84,7 @@ export const coffeeMapRegions = [
     name: 'Bali',
     x: '43%',
     y: '86%',
-    color: '#54704e',
+    color: '#373028',
     notes: ['Kintamani', 'Batur', 'Bangli'],
   },
   {
@@ -92,7 +92,7 @@ export const coffeeMapRegions = [
     name: 'Nusa Tenggara Barat',
     x: '47%',
     y: '89%',
-    color: '#0f2e51',
+    color: '#373028',
     notes: ['Sumbawa', 'Lombok'],
   },
   {
@@ -100,7 +100,7 @@ export const coffeeMapRegions = [
     name: 'Nusa Tenggara Timur',
     x: '55%',
     y: '89%',
-    color: '#027a1e',
+    color: '#373028',
     notes: ['Bajawa', 'Manggarai', 'Ngada', 'Flores', 'Ende'],
   },
   {
@@ -108,7 +108,7 @@ export const coffeeMapRegions = [
     name: 'Kalimantan Barat',
     x: '35%',
     y: '45%',
-    color: '#d5f33c',
+    color: '#373028',
     notes: ['Sambas', 'Bengkayang', 'Pontianak'],
   },
   {
@@ -116,7 +116,7 @@ export const coffeeMapRegions = [
     name: 'Kalimantan Timur',
     x: '46%',
     y: '42%',
-    color: '#fff56f',
+    color: '#373028',
     notes: ['Berau', 'Kutai'],
   },
   {
@@ -124,7 +124,7 @@ export const coffeeMapRegions = [
     name: 'Sulawesi Selatan',
     x: '53.5%',
     y: '65%',
-    color: '#24296f',
+    color: '#373028',
     notes: ['Toraja', 'Enrekang', 'Makale', 'Kalosi'],
   },
   {
@@ -132,7 +132,7 @@ export const coffeeMapRegions = [
     name: 'Sulawesi Barat',
     x: '52.5%',
     y: '56%',
-    color: '#f9c25d',
+    color: '#373028',
     notes: ['Mamasa', 'Polewali Mandar'],
   },
   {
@@ -140,7 +140,7 @@ export const coffeeMapRegions = [
     name: 'Sulawesi Tengah',
     x: '56%',
     y: '53%',
-    color: '#ff6670',
+    color: '#373028',
     notes: ['Poso', 'Sigi', 'Napu'],
   },
   {
@@ -148,7 +148,7 @@ export const coffeeMapRegions = [
     name: 'Sulawesi Tenggara',
     x: '57.5%',
     y: '63%',
-    color: '#65fccf',
+    color: '#373028',
     notes: ['Kolaka', 'Konawe'],
   },
   {
@@ -156,7 +156,7 @@ export const coffeeMapRegions = [
     name: 'Sulawesi Utara',
     x: '62.5%',
     y: '41%',
-    color: '#632fff',
+    color: '#373028',
     notes: ['Bolaang Mongondow', 'Minahasa'],
   },
   {
@@ -164,7 +164,7 @@ export const coffeeMapRegions = [
     name: 'Maluku',
     x: '73%',
     y: '60%',
-    color: '#fc65db',
+    color: '#373028',
     notes: ['Seram', 'Buru'],
   },
     {
@@ -172,7 +172,7 @@ export const coffeeMapRegions = [
     name: 'Maluku Utara',
     x: '71.5%',
     y: '40%',
-    color: '#ff7c54',
+    color: '#373028',
     notes: ['Halmahera'],
   },
   {
@@ -180,7 +180,7 @@ export const coffeeMapRegions = [
     name: 'Papua Barat',
     x: '81.5%',
     y: '51%',
-    color: '#5b4968', 
+    color: '#373028', 
     notes: ['Pegunungan Arfak', 'Manokwari'],
   },
   {
@@ -188,7 +188,7 @@ export const coffeeMapRegions = [
     name: 'Papua',
     x: '93%',
     y: '65%',
-    color: '#9a416c', 
+    color: '#373028', 
     notes: ['Wamena', 'Pegunungan Jayawijaya'],
   },
 ];
