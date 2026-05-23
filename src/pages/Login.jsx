@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, Navigate, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import beansBg from '../assets/beans.webp';
 import footerBg from '../assets/footer.webp';
 import ResetPasswordForm from '../components/auth/ResetPasswordForm';
@@ -17,10 +17,12 @@ export default function Login() {
   const [submitting, setSubmitting] = useState(false);
   const { user, login, signup, logout, resetPassword, updatePassword } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isSignup = mode === 'signup';
   const isReset = mode === 'reset';
   const pendingResetPassword = window.sessionStorage.getItem('pendingResetPassword');
+  const redirectTarget = location.state?.redirectTo || location.state?.from?.pathname || '/#simulation';
 
   useEffect(() => {
     if (!user || !pendingResetPassword) {
@@ -63,7 +65,7 @@ export default function Login() {
   }, [logout, pendingResetPassword, updatePassword, user]);
 
   if (user && !pendingResetPassword) {
-    return <Navigate to={location.state?.redirectTo || location.state?.from?.pathname || '/#simulation'} replace />;
+    return <Navigate to={redirectTarget} replace />;
   }
 
   const changeMode = (nextMode) => {
@@ -78,14 +80,21 @@ export default function Login() {
 
     try {
       if (isSignup) {
-        await signup(email, password, username.trim());
-        setMessage('Akun berhasil dibuat. Cek email jika Supabase meminta konfirmasi.');
+        const data = await signup(email, password, username.trim());
+
+        if (data.session) {
+          navigate(redirectTarget, { replace: true });
+          return;
+        }
+
+        setMessage('Akun berhasil dibuat. Cek email untuk konfirmasi sebelum masuk.');
       } else if (isReset) {
         window.sessionStorage.setItem('pendingResetPassword', password);
         await resetPassword(email);
         setMessage('Link konfirmasi sudah dikirim jika email terdaftar. Buka link tersebut untuk menyelesaikan update password.');
       } else {
         await login(email, password);
+        navigate(redirectTarget, { replace: true });
       }
     } catch (error) {
       setMessage(

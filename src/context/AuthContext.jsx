@@ -8,6 +8,8 @@ const requireSupabaseConfig = () => {
   }
 };
 
+const getAuthRedirectUrl = () => import.meta.env.VITE_AUTH_REDIRECT_URL || `${window.location.origin}/login`;
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -38,6 +40,7 @@ export function AuthProvider({ children }) {
       email,
       password,
       options: {
+        emailRedirectTo: getAuthRedirectUrl(),
         data: {
           username,
           full_name: username,
@@ -57,7 +60,7 @@ export function AuthProvider({ children }) {
   const resetPassword = async (email) => {
     requireSupabaseConfig();
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/login`,
+      redirectTo: getAuthRedirectUrl(),
     });
     if (error) throw error;
   };
