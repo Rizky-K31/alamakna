@@ -30,12 +30,6 @@ export default function Simulation() {
   const flavor = useMemo(() => calculateFlavor(arabicaPercent, blendData), [arabicaPercent, blendData]);
   const taste = useMemo(() => getTasteLabel(arabicaPercent, blendData), [arabicaPercent, blendData]);
   const grind = grindData.find((item) => item.id === selectedGrind) || grindData[0];
-  const robustaPercent = 100 - arabicaPercent;
-  const simulationStats = [
-    [`${arabicaPercent}%`, 'Arabika'],
-    [`${robustaPercent}%`, 'Robusta'],
-    [grind?.labelId || '-', 'Grind'],
-  ];
   const grindImage = grindImages[grind?.imageKey] || grindImages[selectedGrind] || beansBg;
 
   useEffect(() => {

@@ -32,16 +32,36 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
   font-family: var(--font-akshar);
-  background-color: #1f1f1f;
+  background-color: var(--color-dark);
   color: var(--color-text-cream);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.coffee-range:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 6px;
+}
+
+.coffee-range::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 999px;
+  background: transparent;
 }
 
 .coffee-range::-webkit-slider-thumb {
   -webkit-appearance: none;
+  appearance: none;
   width: 28px;
   height: 28px;
   border-radius: 999px;
@@ -50,6 +70,13 @@ body {
   cursor: pointer;
   position: relative;
   z-index: 30;
+  margin-top: -8px;
+}
+
+.coffee-range::-moz-range-track {
+  height: 12px;
+  border-radius: 999px;
+  background: transparent;
 }
 
 .coffee-range::-moz-range-thumb {
@@ -59,6 +86,12 @@ body {
   background: #f0a12f;
   border: 4px solid #0f0f0f;
   cursor: pointer;
+}
+
+.coffee-range::-moz-range-progress {
+  height: 12px;
+  border-radius: 999px;
+  background: transparent;
 }
 
 .bg-card {
@@ -85,6 +118,12 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
+html {
+  scrollbar-color: var(--color-navbar) var(--color-dark);
+  scrollbar-width: thin;
+}
+
 ::-webkit-scrollbar-track {
   background: var(--color-dark);
 }
