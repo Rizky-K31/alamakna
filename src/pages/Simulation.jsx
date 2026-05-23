@@ -89,19 +89,6 @@ export default function Simulation() {
             <p className="mt-5 max-w-xl font-akshar text-xl leading-relaxed text-white/76 md:text-2xl">
               Racik persentase Arabika dan Robusta, lalu lihat karakter rasa yang muncul.
             </p>
-
-            <div className="mt-7 grid max-w-xl grid-cols-3 gap-3">
-              {simulationStats.map(([value, label]) => (
-                <div key={label} className="rounded-[8px] border border-white/12 bg-white/[0.08] px-4 py-4 shadow-xl shadow-black/20 backdrop-blur-xl">
-                  <span className="block font-azeret text-2xl font-extrabold leading-none text-[#f0a12f] md:text-3xl">
-                    {value}
-                  </span>
-                  <span className="mt-2 block font-azeret text-[10px] font-bold uppercase tracking-[0.18em] text-white/50">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
 
           <div className="grid w-full grid-cols-1 justify-center gap-5 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
