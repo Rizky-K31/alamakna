@@ -4,7 +4,7 @@ export default function BlendSimulator({ arabicaPercent, onPercentChange, tasteL
   return (
     <div className="mx-auto flex min-h-[560px] w-full flex-col rounded-[8px] border border-white/14 bg-[#111111]/80 p-5 text-left shadow-2xl shadow-black/45 backdrop-blur-2xl md:p-7">
       <div className="flex flex-col gap-10">
-        <div className="flex items-start justify-between gap-5 border-b border-white/10 pb-5">
+        <div className="flex items-start justify-between gap-5 pb-5">
           <div>
             <h3 className="mt-2 font-azeret text-2xl font-extrabold uppercase tracking-normal text-white md:text-3xl">
               Blend Ratio
