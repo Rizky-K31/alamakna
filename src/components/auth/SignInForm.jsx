@@ -33,7 +33,7 @@ export default function SignInForm({
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
-            placeholder="nama@email.com"
+            placeholder="nama@gmail.com"
             className="mt-2 h-12 w-full rounded-xl border border-white/10 bg-white/10 px-4 font-akshar text-base text-white outline-none transition-colors placeholder:text-white/35 focus:border-accent"
           />
         </label>
